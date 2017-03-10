@@ -1,5 +1,6 @@
 var verificationTokenModel = require('../models/token');
 var userModel = require('../models/user');
+var nodemailer = require('nodemailer');
 
 var verifyUser = function(token, done) {
     verificationTokenModel.findOne({token: token}, function (err, doc){
@@ -21,7 +22,7 @@ var createVerificationToken = function (user, req) {
         var message = {
             email: user.email,
             name: user.name,
-            verifyURL: "http://" + req.get('host') + "/verify/" + token};
+            verifyURL: "http://" + req.get('host') + "/account/verify/" + token};
         sendVerificationEmail(message, function (error, success) {
             if (error) {
                 // not much point in attempting to send again, so we give up
@@ -35,7 +36,26 @@ var createVerificationToken = function (user, req) {
 };
 
 var sendVerificationEmail = function (message, done) {
-    done();
+    var transporter = nodemailer.createTransport({
+        service: 'yandex',
+        auth: {
+            user: 'ambaproject@tema.ws',
+            pass: 'ambaproj'
+        }
+    });
+    var mailOptions = {
+        from: '<ambaproject@tema.ws>',
+        to: message.email,
+        subject: 'Hello',
+        text: message.verifyURL
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message %s sent: %s', info.messageId, info.response);
+    })
 };
 
 module.exports = {
