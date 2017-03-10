@@ -21,9 +21,17 @@ userSchema = new Schema({   //TODO extend(check) userSchema
         lowercase: true,
         required: [true, 'required']
     },
+    verified: {
+        type: Boolean,
+        default: false
+    },
     password: {
         type: String
     },
+    createdAt: {
+        type: Date,
+        required: true,
+        default: Date.now},
     offer: [offerSchema]
 });
 
