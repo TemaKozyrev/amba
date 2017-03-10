@@ -1,75 +1,30 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">AMBA</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" id="cityName" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Choose your city <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li *ngFor="let city of cities; let i = index"><a *ngIf="city.available" href="#" (click)="changeName(i)">{{city.name}}</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <form class="navbar-form navbar-left">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Profile <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Smthg</a></li>
-                        <li><a href="#">Another smthg</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Exit</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<navigation (searchFunc)="searchOnPage($event)"></navigation>
 
 <div class="main-page-container">
     <div class="row">
-        <div class="col-md-3 left-side-menu">
-            <h3>{{categoryTitle}}</h3>
+        <div class="col-md-2 left-side-menu">
+            <h4>{{categoryTitle}}</h4>
             <ul>
-                <li *ngFor="let category of categories">{{category}}</li>
+                <li *ngFor="let category of categories" (click)="categoryFilter(category)">{{category}}</li>
             </ul>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10 main-page-content">
 
-            <h1>{{title}}</h1>
+            <h2>{{title}}</h2>
 
             <div class="row">
-                <div *ngFor="let product of products; let i = index" class="col-sm-6 col-md-4">
+                <div *ngFor="let product of products" class="col-sm-6 col-md-3">
                     <div class="thumbnail">
                         <img src="https://otvet.imgsmail.ru/download/u_d517c822f47a21c3bac79ab27552a9fb_800.jpg"
                              alt="pesik">
                         <div class="caption">
-                            <h3>{{product.name}}{{i+1}}</h3>
+                            <h4>{{product.name}}</h4>
                             <p>Price: $ {{product.price}}</p>
-                            <p>Category: {{product.category}}</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Buy</a></p>
+                            <p><a href="#" class="btn btn-primary" role="button">See more</a></p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

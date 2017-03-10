@@ -1,0 +1,53 @@
+.navbar {
+    margin-bottom: 0;
+    background-color: #507299;
+}
+
+.container-fluid {
+    width: 70%;
+}
+
+.dropdown a,
+.navbar-brand {
+    color: #d9e2ec;
+}
+
+.open > a,
+.open > a:hover,
+.open > a:focus {
+    background-color: #43648c;
+}
+
+input {
+    border-radius: 50px;
+    padding: 4px 18px;
+    background-color: #305075;
+    transition: all 0.3s ease-in;
+    border: 1px black;
+}
+
+input:focus {
+    background-color: #fff;
+    border: 0;
+}
+
+a:focus,
+.navbar-brand:hover{
+    color: #333 !important;
+}
+
+.dropdown-menu li a {
+    color: #2a5885;
+}
+
+li:not .open > ul:hover {
+    background-color: #43648c;
+}
+
+.avatar-img {
+    margin-top: -5px;
+    margin-right: 10px;
+    float: left;
+    width: 30px;
+    height: 30px;
+}
