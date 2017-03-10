@@ -4,13 +4,8 @@ var passport = require('passport');
 var User = require('../models/user');
 var router = express.Router();
 
-
-router.get('/', function (req, res) {
-    res.render('index', { user : req.user });
-});
-
 router.get('/register', function(req, res) {
-    res.render('register', { });
+    res.redirect('/register')
 });
 
 router.post('/register', function(req, res) {
@@ -26,20 +21,16 @@ router.post('/register', function(req, res) {
 });
 
 router.get('/login', function(req, res) {
-    res.render('login', { user : req.user });
+    res.redirect('/login')
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
-    res.send(req.user)
+    res.redirect('/')
 });
 
 router.get('/logout', function(req, res) {
     req.logout();
     res.send('ok');
-});
-
-router.get('/ping', function(req, res){
-    res.status(200).send("pong!");
 });
 
 module.exports = router;
