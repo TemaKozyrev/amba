@@ -6,16 +6,22 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require('http');
 var mongoose = require('mongoose');
-var configDB = require('./config/database.js');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var cors = require('cors');
 
 // var routes = require('./controllers/index');
 
 var app = express();
 
-mongoose.connect(configDB.url);
+// cors
+
+app.use(cors());
+
+//connect to mongodb
+
+mongoose.connect('mongodb://test:test@ds145329.mlab.com:45329/ambaproject');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -43,7 +49,6 @@ passport.deserializeUser(User.deserializeUser());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', requireoutes);
 app.use(require('./controllers'));
 
 // catch 404 and forward to error handler
