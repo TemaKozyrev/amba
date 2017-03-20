@@ -2,14 +2,10 @@
 
 <div class="main-page-container">
     <div class="row">
-        <div class="col-md-2 left-side-menu">
-            <h4>{{categoryTitle}}</h4>
-            <ul>
-                <li *ngFor="let category of categories" (click)="categoryFilter(category)">{{category}}</li>
-            </ul>
+        <div class="col-md-3 left-side-menu">
+            <side-menu (filterCategories)="categoryFilter($event)"></side-menu>
         </div>
-        <div class="col-md-10 main-page-content">
-
+        <div class="col-md-9 main-page-content">
             <h2>{{title}}</h2>
 
             <div class="row">
@@ -28,3 +24,5 @@
         </div>
     </div>
 </div>
+
+<page-footer></page-footer>

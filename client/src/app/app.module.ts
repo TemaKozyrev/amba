@@ -5,12 +5,16 @@ import {HttpModule} from "@angular/http";
 import {AppComponent} from "./app.component";
 import {NavComponent} from "./nav/nav.component";
 import {ModalComponent} from "./nav/modal.component";
+import {SidemenuComponent} from "./sidemenu/sidemenu.component";
+import {FooterComponent} from "./footer/footer.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         NavComponent,
-        ModalComponent
+        ModalComponent,
+        SidemenuComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,

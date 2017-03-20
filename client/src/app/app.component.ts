@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
     constructor(private dataService: DataService){}
 
     title = 'Popular items';
-    categoryTitle = 'Categories';
 
     categoryFilter(category): void {
         this.products = this.dataService.getProducts();

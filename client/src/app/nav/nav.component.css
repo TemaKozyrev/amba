@@ -78,8 +78,13 @@ modal-window input {
 }
 
 .app-modal-footer .btn {
-    padding: 3px 8px;
+    padding: 5px 15px;
     font-size: 0.9em;
+    transition: 0.3s;
+}
+
+.app-modal-footer .btn-default {
+    border: 1px solid #e8e8e8;
 }
 
 .app-modal-footer .btn-primary {
@@ -88,7 +93,6 @@ modal-window input {
 
 .app-modal-footer .btn-primary:hover {
     background-color: #305075;
-    transition: 0.3s;
 }
 
 .modal-footer {
