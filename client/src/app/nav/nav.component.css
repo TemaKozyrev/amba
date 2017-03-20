@@ -51,3 +51,46 @@ li:not .open > ul:hover {
     width: 30px;
     height: 30px;
 }
+
+li > a.login-fields {
+    color: #f0f0f0;
+}
+
+li > a.login-fields:hover {
+    color: #333;
+}
+
+modal-window input {
+    background-color: #fff;
+}
+
+.app-modal-header {
+    font-size: 20px;
+}
+
+.app-modal-footer .col-md-3,
+.app-modal-footer .col-md-9 {
+    padding: 0 10px;
+}
+
+.checkbox {
+    margin-bottom: 0;
+}
+
+.app-modal-footer .btn {
+    padding: 3px 8px;
+    font-size: 0.9em;
+}
+
+.app-modal-footer .btn-primary {
+    background-color: #507299;
+}
+
+.app-modal-footer .btn-primary:hover {
+    background-color: #305075;
+    transition: 0.3s;
+}
+
+.modal-footer {
+    padding: 10px;
+}

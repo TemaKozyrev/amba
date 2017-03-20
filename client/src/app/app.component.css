@@ -29,6 +29,11 @@ h2 {
     font-size: 0.9em;
 }
 
+.btn-primary:hover {
+    background-color: #305075;
+    transition: 0.3s;
+}
+
 h4 {
     margin: 5px 0 5px 0;
 }
