@@ -1,10 +1,8 @@
 var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
-var passportLocalMongoose = require('passport-local-mongoose');
+var bcrypt = require('bcrypt-nodejs');
 var offerSchema = require('./offer').offerSchema;
 var Schema = mongoose.Schema;
-
-
 
 userSchema = new Schema({   //TODO extend(check) userSchema
     username: {
@@ -26,16 +24,41 @@ userSchema = new Schema({   //TODO extend(check) userSchema
         default: false
     },
     password: {
-        type: String
+        type: String,
+        required: true
     },
     createdAt: {
         type: Date,
         required: true,
-        default: Date.now},
+        default: Date.now
+    },
     offer: [offerSchema]
 });
 
+userSchema.pre('save', function (next) {
+    var user = this;
+    var SALT_FACTOR = 5;
+
+    if (!user.isModified('password')) return next();
+
+    bcrypt.genSalt(SALT_FACTOR, function (err, salt) {
+        if (err) return next(err);
+
+        bcrypt.hash(user.password, salt, null, function (err, hash) {
+            if (err) return next(err);
+            user.password = hash;
+            next();
+        });
+    });
+});
+
+userSchema.methods.comparePassword = function(candidatePassword, cb) {
+  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+    if (err) return cb(err);
+    cb(null, isMatch);
+  });
+};
+
 userSchema.plugin(uniqueValidator);
-userSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('User', userSchema);
