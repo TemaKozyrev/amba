@@ -13,7 +13,7 @@ router.post('/register', function (req, res) {
     var user = new User({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password11
     });
 
     user.save(function (err) {
@@ -57,8 +57,28 @@ router.get("/verify/:token", function (req, res, next) {
     });
 });
 
-router.post('/changepass', function (req, res) { //test
-    console.log(req.isAuthenticated())
+router.post('/changepass', function (req, res) {
+    if (req.isAuthenticated()) {
+        User.findOne({ username: req.user.username }, function (err, user) {
+            user.comparePassword(req.body.oldpass, function (err, isMatch) {
+                if (isMatch) {
+                    user.password = req.body.newpass;
+                    user.save();
+                    res.send("password changed");
+                } else {
+                    res.send("incorrect old passowrd");
+                }
+            })
+        });
+    };
+});
+
+router.get('/info', function (req, res) {
+    if (req.isAuthenticated()) {
+        res.send(req.user.username);
+    } else {
+        res.send('not auth');
+    }
 })
 
 module.exports = router;
