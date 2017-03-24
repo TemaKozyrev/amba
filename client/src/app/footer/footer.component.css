@@ -1,0 +1,17 @@
+.wrapper {
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.row {
+    margin: 0 auto;
+}
+
+hr {
+    border: 1px solid #ddd;
+}
+
+.col-md-4 {
+    text-align: center;
+}
