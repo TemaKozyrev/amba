@@ -8,7 +8,9 @@ var http = require('http');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var LocalStrategy = require('passport-local').Strategy;
+
 var User = require('./models/user');
+
 var cors = require('cors');
 
 // var routes = require('./controllers/index');
@@ -21,7 +23,9 @@ app.use(cors());
 
 //connect to mongodb
 
+
 mongoose.connect('mongodb://tema:tema@ds141209.mlab.com:41209/amba');
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));

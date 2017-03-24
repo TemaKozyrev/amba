@@ -1,0 +1,4 @@
+<h4>{{categoryTitle}}</h4>
+<ul>
+    <li *ngFor="let category of categories" (click)="categoryFilter(category)">{{category}}</li>
+</ul>

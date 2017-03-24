@@ -32,6 +32,10 @@ userSchema = new Schema({   //TODO extend(check) userSchema
         required: true,
         default: Date.now
     },
+    createdAt: {
+        type: Date,
+        required: true,
+        default: Date.now},
     offer: [offerSchema]
 });
 

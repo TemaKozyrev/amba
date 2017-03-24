@@ -5,6 +5,7 @@ var User = require('../models/user');
 var verifyToken = require('../middleware/verifyToken');
 var router = express.Router();
 
+
 router.get('/register', function (req, res) {
     res.redirect('/register');
 });
@@ -16,18 +17,22 @@ router.post('/register', function (req, res) {
         password: req.body.password11
     });
 
+
     user.save(function (err) {
         if (err) {
+
             return res.send(err);
         } else {
             verifyToken.createVerificationToken(user, req)
         };
+
 
         passport.authenticate('local')(req, res, function () {
             res.send(req.user);
         });
     })
 });
+
 
 router.get('/login', function (req, res) {
     res.send('login');
@@ -42,6 +47,7 @@ router.post('/login', function (req, res, next) {
             return res.redirect('/');
         });
     })(req, res, next);
+
 });
 
 router.get('/logout', function (req, res) {
@@ -51,7 +57,9 @@ router.get('/logout', function (req, res) {
 
 router.get("/verify/:token", function (req, res, next) {
     var token = req.params.token;
+
     verifyToken.verifyUser(token, function (err) {
+
         if (err) return res.send("verification-failure");
         res.send("verification-success");
     });

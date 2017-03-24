@@ -1,0 +1,19 @@
+h4 {
+    margin: 15px 0 10px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+li {
+    padding: 6px;
+    border-radius: 20px;
+}
+
+li:hover {
+    background-color: #e3e3e3;
+    cursor: pointer;
+}

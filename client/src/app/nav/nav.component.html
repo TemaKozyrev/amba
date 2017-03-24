@@ -1,0 +1,90 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">AMBA</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" id="cityName" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">All cities <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let city of cities; let i = index"><a *ngIf="city.available" href="#" (click)="changeName(i)">{{city.name}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input #searchField (keyup)="search(searchField.value)" type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="login-fields" href="#" (click)="changeUserFields()">{{this.show ? 'login' : 'profile'}}</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li *ngIf="this.show" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"><img class="img-circle avatar-img" src="http://saima.org.au/html/imagedr/noimage_big.jpg">Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Smthg</a></li>
+                        <li><a href="#">Another smthg</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Exit</a></li>
+                    </ul>
+                </li>
+                <li *ngIf="!show">
+                    <a class="login-fields" href="#" (click)="openModal('login')">Login </a>
+                    <modal-window>
+                        <div class="app-modal-header text-center">
+                            {{(this.login) ? 'Login' : 'Register'}}
+                        </div>
+                        <div class="app-modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="inputEmail">Email address</label>
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                </div>
+                                <div *ngIf="login" class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Keep me signed in
+                                    </label>
+                                </div>
+                                <div *ngIf="!login" class="form-group">
+                                    <label for="inputConfirmPassword">Confirm password</label>
+                                    <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Password">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="app-modal-footer">
+                            <div class="row">
+                                <div class="col-xs-9">
+                                    <button type="button" class="btn btn-default btn-large btn-block" (click)="temp_changeShowFlag()">{{(this.login) ? 'Login' : 'Register'}}</button>
+                                </div>
+                                <div class="col-xs-3">
+                                    <button type="button" class="btn btn-primary btn-large btn-block" (click)="changeModal()">{{(!this.login) ? 'Login' : 'Register'}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </modal-window>
+                </li>
+                <li *ngIf="!show">
+                    <a class="login-fields" href="#" (click)="openModal('register')"> Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

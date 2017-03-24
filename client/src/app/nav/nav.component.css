@@ -1,0 +1,100 @@
+.navbar {
+    margin-bottom: 0;
+    background-color: #507299;
+}
+
+.container-fluid {
+    width: 70%;
+}
+
+.dropdown a,
+.navbar-brand {
+    color: #d9e2ec;
+}
+
+.open > a,
+.open > a:hover,
+.open > a:focus {
+    background-color: #43648c;
+}
+
+input {
+    border-radius: 50px;
+    padding: 4px 18px;
+    background-color: #305075;
+    transition: all 0.3s ease-in;
+    border: 1px black;
+}
+
+input:focus {
+    background-color: #fff;
+    border: 0;
+}
+
+a:focus,
+.navbar-brand:hover{
+    color: #333 !important;
+}
+
+.dropdown-menu li a {
+    color: #2a5885;
+}
+
+li:not .open > ul:hover {
+    background-color: #43648c;
+}
+
+.avatar-img {
+    margin-top: -5px;
+    margin-right: 10px;
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+
+li > a.login-fields {
+    color: #f0f0f0;
+}
+
+li > a.login-fields:hover {
+    color: #333;
+}
+
+modal-window input {
+    background-color: #fff;
+}
+
+.app-modal-header {
+    font-size: 20px;
+}
+
+.app-modal-footer .col-md-3,
+.app-modal-footer .col-md-9 {
+    padding: 0 10px;
+}
+
+.checkbox {
+    margin-bottom: 0;
+}
+
+.app-modal-footer .btn {
+    padding: 5px 15px;
+    font-size: 0.9em;
+    transition: 0.3s;
+}
+
+.app-modal-footer .btn-default {
+    border: 1px solid #e8e8e8;
+}
+
+.app-modal-footer .btn-primary {
+    background-color: #507299;
+}
+
+.app-modal-footer .btn-primary:hover {
+    background-color: #305075;
+}
+
+.modal-footer {
+    padding: 10px;
+}

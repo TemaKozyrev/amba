@@ -1,0 +1,58 @@
+.main-page-container {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.main-page-content {
+    background-color: #fff;
+    padding: 0 10px;
+    min-height: 800px;
+}
+
+.left-side-menu {
+    padding: 0 10px;
+    border-radius: 10px 10px 2px 2px;
+}
+
+.col-md-3 {
+    padding: 0 5px;
+}
+
+h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 5px 15px;
+    background-color: #507299;
+    font-size: 0.9em;
+}
+
+.btn-primary:hover {
+    background-color: #305075;
+    transition: 0.3s;
+}
+
+h4 {
+    margin: 5px 0 5px 0;
+}
+
+
+p {
+    margin: 0 0 5px 0;
+}
+
+.thumbnail {
+    margin-bottom: 10px;
+}
+
+.caption {
+    padding: 3px;
+}
+
+.pager {
+    margin-top: 10px;
+}

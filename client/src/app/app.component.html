@@ -1,3 +1,28 @@
-<h1>
-  {{title}}
-</h1>
+<navigation (searchFunc)="searchOnPage($event)"></navigation>
+
+<div class="main-page-container">
+    <div class="row">
+        <div class="col-md-3 left-side-menu">
+            <side-menu (filterCategories)="categoryFilter($event)"></side-menu>
+        </div>
+        <div class="col-md-9 main-page-content">
+            <h2>{{title}}</h2>
+
+            <div class="row">
+                <div *ngFor="let product of products" class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <img src="https://otvet.imgsmail.ru/download/u_d517c822f47a21c3bac79ab27552a9fb_800.jpg"
+                             alt="pesik">
+                        <div class="caption">
+                            <h4>{{product.name}}</h4>
+                            <p>Price: $ {{product.price}}</p>
+                            <p><a href="#" class="btn btn-primary" role="button">See more</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<page-footer></page-footer>
